@@ -6,6 +6,7 @@ The attached files were written following the Portable Batch System (PBS) format
 
 The files are presented following the order in which they were executed. Scripts were named according to the job they performed. The bioinformatic analysis procedure can be divided into four main components: raw sequence processing, taxonomic composition characterisation, diversity analysis and profiling of metagenome functional predictions. An outline of the purpose served by each script within the context of one of these components is provided below:
 
+
 Raw Sequence Processing
 
 1.	Mapping file validation: 1_validate_mapping_file_combo.script
@@ -18,6 +19,7 @@ Raw Sequence Processing
 8.	Outliers removal: 8_filter_outliers_joined_combo.script
 9.	Summarisation of OTU table after exclusion of singletons and outliers: 9_summarise_sing+outliers_out_OTU_table_joined_combo.script
 
+
 Taxonomic Composition Characterisation
 
 10.	Core diversity analysis: 10_analyse_core_diversity_joined_combo.script
@@ -28,14 +30,14 @@ Diversity Analysis
 13.	Exclusion of highly variable regions from the alignment: 13_filter_alignment_joined_combo.script
 14.	Building of phylogenetic tree: 14_make_philogeny_joined_combo.script
 
-              I. Alpha Diversity Analysis
+    I. Alpha Diversity Analysis
 
 15.	Rarefaction of OTU tables at multiple sequencing depths: 15_multi_rarefactions_joined_combo.script
 16.	Calculation of alpha diversity at each rarefaction depth: 16_alpha_diversity_joined_combo.script
 17.	Collation of alpha diversity tables: 17_collate_alpha_diversity_joined_combo.script
 18.	Rarefaction curves plotting: 18_make_rarefaction_plots_joined_combo.script
 
-              II.	Beta Diversity Analysis
+    II.	Beta Diversity Analysis
 
 19.	Generation of unweighted UniFrac distance matrices on previously rarefied OTU tables: 19_beta_diversity_unweighted_unifrac_joined_combo.script
 20.	Generation of weighted UniFrac distance matrices on previously rarefied OTU tables: 20_beta_diversity_weighted_unifrac_joined_combo.script
