@@ -1,0 +1,33 @@
+#!/bin/bash --login
+##PBS -l walltime=1:00:00
+##PBS -l select=1:ncpus=16
+#PBS -N functional_summary_through_plots_joined_combo
+#PBS -A d411-training
+#PBS -j oe
+
+### script start
+
+#Setting temporary directory
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+#Loading virtual environment
+echo "loading virtual environment"
+conda deactivate
+conda activate qiime1
+
+# QIIME Code
+
+#Validating mapping file
+echo "Validating mapping file"
+time summarize_taxa_through_plots.py \
+-i ~/picrust_analysis/ucrC97/otu_table.biom \
+-p ~/picrust_analysis/qiime_params.txt \
+-o ~/picrust_analysis/plots_at_level3/ \
+
+#Deactivating environment
+echo "closing environment"
+conda deactivate
+
+### script end

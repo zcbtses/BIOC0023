@@ -1,0 +1,40 @@
+#!/bin/bash --login
+#PBS -l walltime=2:00:00
+#PBS -l select=1:ncpus=16
+#PBS -N pick_closed_OTUs_joined_combo
+#PBS -A d411-training
+#PBS -j oe
+
+### script start
+
+#Setting temporary directory
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+#Loading virtual environment
+echo "loading virtual environment"
+conda deactivate
+conda activate qiime1
+
+# QIIME code
+
+echo "16 cores"
+echo "Picking closed reference OTUs"
+echo "Full dataset"
+for i in {1..3}
+do
+    echo "run $i"
+    time pick_closed_reference_otus.py \
+    -i ~/output/slout/joined_combo/chimera_free_seqs.fna \
+    -o ~/output/otu/joined_combo/ \
+    -O 16 \
+    -r ~/reference_databases/SILVA_132_QIIME_release/rep_set/rep_set_16S_only/97/silva_132_97_16S.fna \
+    -t ~/reference_databases/SILVA_132_QIIME_release/rep_set_aligned/rep_set_16S_only/97/97_alignment.fna \
+done
+
+#Deactivating environment
+echo "closing environment"
+conda deactivate
+
+### script end

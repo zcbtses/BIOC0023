@@ -1,0 +1,34 @@
+#!/bin/bash --login
+#PBS -l walltime=12:00:00
+#PBS -l select=1:ncpus=16
+#PBS -N identify_chimeras_joined_combo
+#PBS -A d411-training
+#PBS -j oe
+
+### script start
+
+#Setting temporary directory
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+#Loading virtual environment
+echo "loading virtual environment"
+conda deactivate
+conda activate qiime1
+
+# QIIME Code
+
+#Identifying chimeric sequences
+echo "Identifying chimeric sequences"
+time identify_chimeric_seqs.py \
+-i ~/output/slout/joined_combo/seqs.fna \
+-m usearch61 \
+-o ~/output/slout/joined_combo/usearch_checked_chimeras/ \
+-r ~/reference_databases/gold.fa \
+
+#Deactivating environment
+echo "closing environment"
+conda deactivate
+
+### script end

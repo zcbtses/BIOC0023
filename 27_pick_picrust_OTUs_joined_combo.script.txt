@@ -1,0 +1,38 @@
+#!/bin/bash --login
+#PBS -l walltime=6:00:00
+#PBS -l select=1:ncpus=16
+#PBS -N pick_picrust_OTUs_joined_combo
+#PBS -A d411-training
+#PBS -j oe
+
+### script start
+
+#Setting temporary directory
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+#Loading virtual environment
+echo "loading virtual environment"
+conda deactivate
+conda activate qiime1
+
+echo "pick_otus:enable_rev_strand_match True"  >> $PWD/otu_picking_params_97.txt
+echo "pick_otus:similarity 0.97" >> $PWD/otu_picking_params_97.txt
+
+# QIIME code
+
+#Picking picrust OTUs
+echo "Picking picrust OTUs"
+time pick_closed_reference_otus.py \
+-i ~/output/slout/joined_combo/chimera_free_seqs.fna \
+-o ~/picrust_analysis/ucrC97 \
+-p ~/picrust_analysis/otu_picking_params_97.txt \
+-r ~/picrust_analysis/gg_13_5_otus/rep_set/97_otus.fasta \
+-t ~/picrust_analysis/gg_13_5_otus/taxonomy/97_otu_taxonomy.txt \
+
+#Deactivating environment
+echo "closing environment"
+conda deactivate
+
+### end script

@@ -1,0 +1,37 @@
+#!/bin/bash --login
+#PBS -l walltime=00:20:00
+#PBS -l select=1:ncpus=16
+#PBS -N analyse_core_div_joined_combo
+#PBS -A d411-training
+#PBS -j oe
+
+### script start
+
+#Setting temporary directory
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+#Loading virtual environment
+echo "loading virtual environment"
+conda deactivate
+conda activate qiime1
+
+# QIIME code
+
+#Performing core diversity analysis
+echo "core diversity analysis"
+time core_diversity_analyses.py \
+-i ~/output/otu/sing+outl_out_otu_table.biom \
+-t ~/output/otu/joined_combo/97_otus.tree \
+-o ~/output/cdout2 \
+-m ~/mapping_files/mapping_file_team1_combo.tsv \
+-e 14000 \
+-a -O 16 \
+--recover_from_failure
+
+#Deactivating environment
+echo "closing environment"
+conda deactivate
+
+### script end

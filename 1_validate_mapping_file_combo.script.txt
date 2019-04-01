@@ -1,0 +1,32 @@
+#!/bin/bash --login
+##PBS -l walltime=1:00:00
+##PBS -l select=1:ncpus=16
+#PBS -N validate_mapping_file_combo
+#PBS -A d411-training
+#PBS -j oe
+
+### script start
+
+#Setting temporary directory
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+#Loading virtual environment
+echo "loading virtual environment"
+conda deactivate
+conda activate qiime1
+
+# QIIME Code
+
+#Validating mapping file
+echo "Validating mapping file"
+time validate_mapping_file.py \
+-m ~/mapping_files/mapping_file_team1_combo.tsv \
+-o ~/mapping_files/validation_mapping_file_team1_combo/ \
+
+#Deactivating environment
+echo "closing environment"
+conda deactivate
+
+### script end

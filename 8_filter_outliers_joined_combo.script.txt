@@ -1,0 +1,34 @@
+#!/bin/bash --login
+#PBS -l walltime=1:00:00
+#PBS -l select=1:ncpus=16
+#PBS -N filter_outliers_joined_combo
+#PBS -A d411-training
+#PBS -j oe
+
+### script start
+
+#Setting temporary directory
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+#Loading virtual environment
+echo "loading virtual environment"
+conda deactivate
+conda activate qiime1
+
+# QIIME code
+
+#Filtering outlier samples
+echo "Filtering outliers"
+time filter_samples_from_otu_table.py \
+-i ~/output/otu/sing_out_otu_table.biom \
+-o ~/output/otu/sing+outl_out_otu_table.biom \
+-n 4000 \
+-x 210000 \
+
+#Deactivating environment
+echo "closing environment"
+conda deactivate
+
+### script end
