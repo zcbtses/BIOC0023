@@ -28,7 +28,7 @@ Diversity Analysis
 13.	Exclusion of highly variable regions from the alignment: 13_filter_alignment_joined_combo.script
 14.	Building of phylogenetic tree: 14_make_philogeny_joined_combo.script
 
-      I.	Alpha Diversity Analysis
+       I. Alpha Diversity Analysis
 
 15.	Rarefaction of OTU tables at multiple sequencing depths: 15_multi_rarefactions_joined_combo.script
 16.	Calculation of alpha diversity at each rarefaction depth: 16_alpha_diversity_joined_combo.script
