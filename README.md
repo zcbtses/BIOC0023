@@ -1,7 +1,9 @@
 # BIOC0023
 
 This repository includes the scripts submitted to Cirrus to analyse the genomic DNA from the microbial community of 13 paper pound notes, 13 polymer GBP banknotes, a control (i.e. swab from the inside of the plastic bag used for banknotes transport), a blank (i.e. unused swab) and a set of 12 hand microbiome samples. A full description of the bioinformatic procedure, the interpretation of the obtained results and the theoretical background to understand the aims and hypothesis of the study are provided in the report “Polymer Pound Notes: A Change in the Microbiome of British Currency”.
+
 The attached files were written following the Portable Batch System (PBS) format. Therefore, the scripts include the walltime, the cores, the commands and cluster resources needed for each job. 
+
 The files are presented following the order in which they were executed. Scripts were named according to the job they performed. The bioinformatic analysis procedure can be divided into four main components: raw sequence processing, taxonomic composition characterisation, diversity analysis and profiling of metagenome functional predictions. An outline of the purpose served by each script within the context of one of these components is provided below:
 
 
