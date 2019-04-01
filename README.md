@@ -28,14 +28,14 @@ Diversity Analysis
 13.	Exclusion of highly variable regions from the alignment: 13_filter_alignment_joined_combo.script
 14.	Building of phylogenetic tree: 14_make_philogeny_joined_combo.script
 
-       I. Alpha Diversity Analysis
+              I. Alpha Diversity Analysis
 
 15.	Rarefaction of OTU tables at multiple sequencing depths: 15_multi_rarefactions_joined_combo.script
 16.	Calculation of alpha diversity at each rarefaction depth: 16_alpha_diversity_joined_combo.script
 17.	Collation of alpha diversity tables: 17_collate_alpha_diversity_joined_combo.script
 18.	Rarefaction curves plotting: 18_make_rarefaction_plots_joined_combo.script
 
-      II.	Beta Diversity Analysis
+              II.	Beta Diversity Analysis
 
 19.	Generation of unweighted UniFrac distance matrices on previously rarefied OTU tables: 19_beta_diversity_unweighted_unifrac_joined_combo.script
 20.	Generation of weighted UniFrac distance matrices on previously rarefied OTU tables: 20_beta_diversity_weighted_unifrac_joined_combo.script
@@ -45,6 +45,7 @@ Diversity Analysis
 24.	PCoA of weighted UniFrac distances: 24_make_emperor_weighted_unifrac_joined_combo.script
 25.	ANOSIM of unweighted UniFrac distances: 25_anosim_beta_diversity_unweighted_unifrac_joined_combo.script
 26.	ANOSIM of weighted UniFrac distances: 26_anosim_beta_diversity_weighted_unifrac_joined_combo.script
+
 
 Profiling of Metagenome Functional Predictions
 
